@@ -1,0 +1,3 @@
+--- Log resetado após backup em 06/05/2026 19:20:48 ---
+2026-05-06 19:20:49,289 - TELEGRAM_LOG - INFO - ✅ Telegram message delivered.
+2026-05-06 19:20:49,289 - TELEGRAM_LOG - WARNING - ⚠️ System shutdown sequence completed. Terminating...

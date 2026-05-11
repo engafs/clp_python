@@ -1,0 +1,86 @@
+plc_connection:
+  ip: ip_clp
+  name: nome_clp
+  root: raiz_clp
+
+telegram_connection:
+  admin_ids:
+  - id_usuario_telegram
+  bot_chat_id: id_grupo
+  bot_token: token_bot_telegram
+
+email:
+  password: senha_email
+  sender: email (gmail)
+
+allowed_log_emails:
+  'id_usuario_telegram': 'email_admin'
+
+mqtt_connection:
+  broker: ip_broker_mqtt
+  port: porta_mqtt
+  username: nome_broker_ip (se houver)
+  password: senha_broker (se houver)
+
+commands:
+- description: descricao_comando
+  type: tipo_variavel
+  variable: nome_real_variavel
+
+monitoring_list:
+- description: descricao_variavel_monitoramento
+  interval: tempo_intevalo_publicacao_valor_mqtt
+  topic: nome_topico_variavel_mqtt
+  variable: nome_variavel
+
+# OBS: Variavel precisa estar na lista de monitoramento para pegar o tópico
+maintenance_targets:
+- label: descricao_variavel_para_manutencao
+  limit: limite_vida_peca_sensor
+  topic: nome_topico_mqtt
+
+alert_rules:
+  - topic: nome_pou/nome_variavel
+    threshold: 10
+    operator: "=="
+    notify_via:
+      - email
+      - telegram
+    auto_action:
+      variable: nome_variavel_a_ser_modificada
+      name: nome_amigavel_variavel
+      pou: nome_pou
+      reason: motivo_acao_automatica
+      type: tipo_acao_automatica  # ex: "pulse" ou "bool"
+    emails:
+      - inserir_email_para_notificacao
+
+  - topic: nome_pou/nome_variavel
+    threshold: 9.0
+    operator: ">"
+    notify_via:
+      - telegram
+
+alert_rules:
+- auto_action:
+    variable: nome_variavel_a_ser_acionada
+    name: nome_amigavel_variavel
+    pou: nome_arquivo_pou
+    type: pulse  # pulse ou bool
+    reason: motivo_acao_automatica
+  notify_via:
+  - email
+  - telegram
+  emails:
+  - email_destinatario
+  topic: nome_pou/nome_variavel
+  operator: ==
+  threshold: 100
+
+- notify_via:
+  - telegram
+  topic: nome_pou/nome_variavel
+  operator: '>'
+  threshold: 9.0
+
+
