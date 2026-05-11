@@ -2,7 +2,7 @@ from src.monitoring_main import IndustrialMonitoringSystem
 import threading
 import asyncio
 
-system = IndustrialMonitoringSystem(config_filename="config_scene_10.yaml")
+system = IndustrialMonitoringSystem(config_filename="config.yaml")
 
 telegram_thread = threading.Thread(
         target=system.telegram_service.poll_commands, 
