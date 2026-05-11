@@ -1,0 +1,9 @@
+.env
+.vscode/
+rascunho_testes.py
+rascunho.py
+__pycache__/
+venv/
+*.pyc
+config/*.yaml
+!config/config.yaml
