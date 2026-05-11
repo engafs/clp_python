@@ -448,6 +448,7 @@ allowed_log_emails:
 dashboard_layout:
   - type: "line"
     vars: ["var1", "var2"]
+    labels: ["Variável 1", "Variável 2"]
     title: "Visualização das variáveis"
   - type: "pie"
     vars: ["o_bases", "o_boxes", "o_lids"]
